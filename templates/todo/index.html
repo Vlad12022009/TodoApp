@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="createform">
+    <div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p class="form-text">Заголовок*</p>
+        <p class="form-article">{{ form.article }}</p>
+        <p class="form-text">Описание*</p>
+        <p class="form-body">{{ form.body }}</p>
+        <p class="form-body">{{ form.image }}</p>
+        <p class="form-status">{{ form.status }} Статус</p>
+        <input type="submit" value="Добавить" class="form-btn default-btn-style">
+    </form>
+    {% if delete_complete_tasks %}
+    <form action="/delete_complete_tasks/" method="get" class="delete-complete-tasks">
+        <input type="submit" value="Удалить все завершённые" class="default-btn-style">
+    </form>
+    {% endif %}
+    </div>
+</div>
+
+
+
+    <div>
+    <div class="all-tasks">
+    {% for i in tasks %}
+    <div class="task">
+        <p class="article">{{i.article}}</p>
+        {% if i.image %}
+            <img src="{% static i.image.url %}" height="400px">
+        {% endif %}
+        <p class="body"><span>{{i.body}}</span></p>
+    <div class="status-update-delete">
+        <div>
+        {% if i.status %}
+            <p class="status-txt">Статус:</p>
+            <p class="status-true">Сделано</p>
+            </div>
+            <form action="/task-status/{{i.id}}/" method="get">
+                <input type="submit" value="Не сделано" class="status-btn-false default-btn-style">
+            </form>
+        {% else %}
+            <p class="status-txt">Статус:</p>
+            <p class="status-false">Не сделано</p>
+            </div>
+            <form action="/task-status/{{i.id}}/" method="get">
+                <input type="submit" value="Сделано" class="status-btn-true default-btn-style">
+            </form>
+        {% endif %}
+        
+        
+        <form action="/update-task/{{i.id}}/" method="get">
+            <input type="submit" value="Изменить" class="update-task default-btn-style">
+        </form>
+        <form action="/delete/{{i.id}}/" method="get">
+            <input type="submit" value="X" class="delete-task default-btn-style">
+        </form>
+    </div>
+    </div>
+    {% endfor%}
+    </div>
+    <div class="pagination-div">
+        <p>
+            {% if page_obj.has_previous %}
+                <a href="?page=1">Первая</a>
+                <a href="?page={{ page_obj.previous_page_number }} "style="border-left: 2px solid #dbdbdb;">Предыдущая</a>
+            {% endif %}
+            {% if page_obj.has_previous or page_obj.has_next %}
+                <span class="curren">
+                    {{ page_obj.number}} 
+                </span>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" style="border-right: 2px solid #dbdbdb;">Следующая</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
+            {% endif %}
+            </p>
+    </div>
+
+{% endblock %}

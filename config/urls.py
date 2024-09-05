@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from todo.views import IndexListView, status_reverse, delete_complete_tasks, update_task, delete_task
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', IndexListView.as_view(), name='index'),
+    path('task-status/<int:pk>/', status_reverse),
+    path("delete_complete_tasks/", delete_complete_tasks),
+    path('update-task/<int:pk>/', update_task),
+    path('delete/<int:pk>/', delete_task),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="delete-text">
+{% if tasks %}
+    <h1>Удалить эти задачи</h1>
+{% else %}
+    <h1>Удалить эту задачу</h1>
+{% endif %}
+</div>
+    <div class="all-tasks">
+    {% if tasks %}
+        {% for i in tasks %}
+        <div class="task-delete">
+            <p class="article">{{i.article}}</p>
+            <p class="body"><span>{{i.body}}</span></p>
+        </div>
+        {% endfor %}
+    {% else %}
+    <div class="task-delete">
+        <p class="article">{{task.article}}</p>
+        <p class="body"><span>{{task.body}}</span></p>
+    </div>
+    {% endif %}
+    </div>
+    <div class="delete-or-no-btns">
+        <form action="/" method="get">
+            <input type="submit" value="Нет" class="no default-btn-style">
+        </form>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Удалить?" class="yes default-btn-style">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,242 @@
+.createform{
+    display: flex;
+    margin: 0;
+    justify-content: center;
+}
+.form-text{
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+.form-article, .form-body{
+    margin: 2px;
+}
+.form-article>input, .form-body>textarea{
+    height: 50px;
+    width: 600px;
+}
+.form-status{
+    font-size: 25px;
+}
+.form-status>input{
+    transform: scale(1.7);
+    height: 20px;
+    margin: 10px;
+}
+.default-btn-style{
+    font-size: 18px;
+    height: 40px;
+    min-width: 100px;
+    background-color: #007d34;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.5s;
+    border: none;
+}
+.form-btn:hover, .status-btn-true:hover, .no:hover{
+    background-color: #44944a;
+}
+.all-tasks{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.task{
+    width: 40%;
+    border: 2px solid #dbdbdb;
+    margin: 1%;
+    border-radius: 5px;
+}
+.article{
+    width: 100%;
+    margin: 0;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #dbdbdb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 25px;
+}
+.body{
+    width: 100%;
+    margin: 0;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #dbdbdb;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+.body>span{
+    margin-left: 10px;
+}
+.status-update-delete{
+    width: 100%;
+    margin: 0;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.status-true, .status-false{
+    padding: 2px;
+    font-size: 15px;
+    background-color: #007d34;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0;
+}
+.status-false{
+    color: black;
+    background-color: #e4a010;
+}
+.status-txt{
+    font-weight: bold;
+    margin: 0;
+    font-size: 18px;
+}
+
+.status-btn-false{
+    background-color: #fc2847;
+}
+
+.status-btn-false:hover, .yes:hover{
+    background-color: darkred;
+}
+
+.update-task{
+    background-color: transparent;
+    color: #66d9ff;
+    border: 2px solid #66d9ff;
+    transition: 0.5s;
+    margin: 10px;
+}
+.delete-task{
+    background-color: transparent;
+    color: #fc2847;
+    min-width: 40px;
+    padding: 0;
+    border: 2px solid #fc2847;
+    transition: 0.5s;
+}
+
+.update-task:hover{
+    border: 2px solid cadetblue;
+    color: cadetblue;
+}
+.delete-task:hover{
+    border: 2px solid darkred;
+    color: darkred;
+}
+
+.delete-complete-tasks>input{
+    margin-top: 20px;
+    background-color: transparent;
+    color: #fc2847;
+    border: 2px solid #fc2847;
+    transition: 0.5s;
+}
+.delete-complete-tasks>input:hover { 
+    border: 2px solid darkred;
+    color: darkred;
+}
+
+.form-update-btn{
+    background-color: #e4a010;
+}
+.form-update-btn:hover{
+    background-color: #b5800d;
+}
+.back-btn{
+    background-color: transparent;
+    color: #007d34;
+    border: 2px solid #007d34;
+    transition: 0.5s;
+    margin-top: 20px;
+    width: 100%;
+}
+.back-btn:hover{
+    border: 2px solid #44944a;
+    color: #44944a
+}
+.updateform{
+    padding: 10px;
+}
+
+.task-delete{
+    min-width: 10%;
+    border: 2px solid #dbdbdb;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.delete-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-or-no-btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.no {
+    min-width: 50px;
+}
+.yes{
+    background-color: #fc2847;
+    margin-left: 30px;
+}
+.pagination-div{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-div>p{
+    margin: 0;
+    border: 2px solid #dbdbdb;
+    border-radius: 5px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-div>p>a{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #3333ff;
+    transition: all 0.5s;
+}
+
+.pagination-div>p>span {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin: 0;
+    color: white;
+    background-color: #3333ff;
+
+}
+.pagination-div>p>a:hover{
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+}

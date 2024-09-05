@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="createform">
+    <div>
+    <div class="updateform">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p class="form-text">Заголовок*</p>
+        <p class="form-article">{{ form.article }}</p>
+        <p class="form-text">Описание*</p>
+        <p class="form-body">{{ form.body }}</p>
+        <p class="form-body">{{ form.image }}</p>
+        <p class="form-status">{{ form.status }} Статус</p>
+        <input type="submit" value="Изменить" class="form-btn form-update-btn default-btn-style">
+    </form>
+    </div>
+    <form action="/" method="get">
+        <input type="submit" value="Назад" class="back-btn default-btn-style">
+    </form>
+    </div>
+</div>
+{% endblock %}
