@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from todo.views import IndexListView, status_reverse, delete_complete_tasks, update_task, delete_task
+from todo.views import (IndexListView, status_reverse, delete_complete_tasks, update_task, delete_task, index_json_view,  json_frontend_view)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,4 +26,6 @@ urlpatterns = [
     path("delete_complete_tasks/", delete_complete_tasks),
     path('update-task/<int:pk>/', update_task),
     path('delete/<int:pk>/', delete_task),
+    path('json_simple', index_json_view, name='index-json'),
+    path('json_frontend', json_frontend_view, name='json-frontend'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

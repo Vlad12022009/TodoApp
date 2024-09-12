@@ -23,43 +23,42 @@
 
 
 
-    <div>
     <div class="all-tasks">
     {% for i in tasks %}
-    <div class="task">
-        <p class="article">{{i.article}}</p>
-        {% if i.image %}
-            <img src="{% static i.image.url %}" height="400px">
-        {% endif %}
-        <p class="body"><span>{{i.body}}</span></p>
-    <div class="status-update-delete">
-        <div>
-        {% if i.status %}
-            <p class="status-txt">Статус:</p>
-            <p class="status-true">Сделано</p>
+        <div class="task">
+            <p class="article">{{i.article}}</p>
+            {% if i.image %}
+                <img src="{% static i.image.url %}" height="400px">
+            {% endif %}
+            <p class="body"><span>{{i.body}}</span></p>
+            <div class="status-update-delete">
+                <div>
+                {% if i.status %}
+                    <p class="status-txt">Статус:</p>
+                    <p class="status-true">Сделано</p>
+                    </div>
+                    <form action="/task-status/{{i.id}}/" method="get">
+                        <input type="submit" value="Не сделано" class="status-btn-false default-btn-style">
+                    </form>
+                {% else %}
+                    <p class="status-txt">Статус:</p>
+                    <p class="status-false">Не сделано</p>
+                    </div>
+                    <form action="/task-status/{{i.id}}/" method="get">
+                        <input type="submit" value="Сделано" class="status-btn-true default-btn-style">
+                    </form>
+                {% endif %}
+                
+                
+                <form action="/update-task/{{i.id}}/" method="get">
+                    <input type="submit" value="Изменить" class="update-task default-btn-style">
+                </form>
+                <form action="/delete/{{i.id}}/" method="get">
+                    <input type="submit" value="X" class="delete-task default-btn-style">
+                </form>
             </div>
-            <form action="/task-status/{{i.id}}/" method="get">
-                <input type="submit" value="Не сделано" class="status-btn-false default-btn-style">
-            </form>
-        {% else %}
-            <p class="status-txt">Статус:</p>
-            <p class="status-false">Не сделано</p>
-            </div>
-            <form action="/task-status/{{i.id}}/" method="get">
-                <input type="submit" value="Сделано" class="status-btn-true default-btn-style">
-            </form>
-        {% endif %}
-        
-        
-        <form action="/update-task/{{i.id}}/" method="get">
-            <input type="submit" value="Изменить" class="update-task default-btn-style">
-        </form>
-        <form action="/delete/{{i.id}}/" method="get">
-            <input type="submit" value="X" class="delete-task default-btn-style">
-        </form>
-    </div>
-    </div>
-    {% endfor%}
+        </div>
+        {% endfor%}
     </div>
     <div class="pagination-div">
         <p>

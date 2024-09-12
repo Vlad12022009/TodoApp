@@ -4,6 +4,7 @@ from .models import CreateTask
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
+from django.http import JsonResponse
 # Create your views here.
 
 class IndexListView(ListView, FormMixin):
@@ -67,3 +68,10 @@ def delete_task(request, pk):
    
     }
     return render(request, "todo/delete_complete_tasks.html", context=context)
+
+def index_json_view(request):
+    todos = CreateTask.objects.all().values()
+    return JsonResponse({'todos': list(todos)}, safe=False)
+
+def json_frontend_view(request):
+    return render(request, 'todo/json_simple.html')

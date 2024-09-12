@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+<div class="createform">
+    <div>
+    <form action="./create_simple" method="post">
+        {% csrf_token %}
+        <p class="form-text">Заголовок*</p>
+        <p class="form-article"><input type="text" name="title" id=""></p>
+        <p class="form-text">Описание*</p>
+        <p class="form-article"><input type="text" name="description" id=""></p>
+        <input type="submit" value="Добавить" class="form-btn default-btn-style">
+    </form>
+    </div>
+</div>
+    <div class="all-tasks">
+
+    </div>
+</body>
+{% endblock %}
+
+{% block js%}
+<script>
+    let new_div = document.querySelector('.all-tasks');
+    let body = document.querySelector('body');
+
+
+    function createTodo(obj){
+        div = document.createElement('div')
+        div.className = 'task'
+        article = document.createElement('p')
+        article.className = 'article'
+        article.innerHTML = obj.article
+        body = document.createElement('p')
+        body.className = 'body'
+        span = document.createElement('span')
+        span.innerHTML = obj.body
+        div.appendChild(article)
+        if (obj.image != null){ 
+            img = document.createElement('img')
+            img.src = 'static/media/' + obj.image 
+            img.height = 400
+            div.appendChild(img)
+        }
+        body.appendChild(span)
+        div.appendChild(body)
+        return div
+    }
+
+    function dataToHtml(data){
+        for (let i = 0; i < data.length; i++) {
+            let todo = createTodo(data[i])
+            new_div.appendChild(todo)
+            //appendToElement(todo, body)
+        }
+    }
+
+    fetch('./json_simple')
+        .then(response => response.json())
+        //.then(data => console.log(data))
+        .then(data => dataToHtml(data.todos))
+</script>
+{% endblock %}
