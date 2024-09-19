@@ -123,7 +123,6 @@ STATIC_URL = '/static_url/'
 STATIC_ROOT = '/home/Vlad12022009/TodoApp/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'staticbase',
-    BASE_DIR / 'static',
 ]
 
 MEDIA_URL = '/media/'
