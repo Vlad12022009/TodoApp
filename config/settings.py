@@ -120,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/Vlad12022009/TodoApp/staticbase'
+STATIC_ROOT = '/home/Vlad12022009/TodoApp/static'
 STATICFILES_DIRS = [
     BASE_DIR / 'staticbase',
 ]
