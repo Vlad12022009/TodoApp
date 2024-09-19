@@ -28,6 +28,6 @@ urlpatterns = [
     path('delete/<int:pk>/', delete_task),
     path('json_simple', index_json_view, name='index-json'),
     path('json_frontend', json_frontend_view, name='json-frontend'),
-    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
-    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
 ] 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
